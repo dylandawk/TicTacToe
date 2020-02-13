@@ -19,7 +19,7 @@ function PageRoot()
   }
   
   React.useEffect(() => {
-    setInterval(setTime, )
+    setInterval(setTime, 1000)
   }, []);
   
   return <div>
