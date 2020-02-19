@@ -6,13 +6,14 @@ function PageRoot() {
   const rows = 3;
   const columns = 3;
   const [grid, setGrid] = React.useState( [
-        [" ", " ", " "],
-        [" ", " ", " "],
-        [" ", " ", " "],
+        ["-", "-", "-"],
+        ["-", "-", "-"],
+        ["-", "-", "-"],
     ]);
-  const [player, setPlayer] = React.useState9(0);
-  const PLAYER_ONE = 0;
-  const PLAYER_TWO = 1;
+  const [player, setPlayer] = React.useState("X");
+  const [gameState, setGameState] = React.useState(0);
+  const PLAYER_ONE = "X";
+  const PLAYER_TWO = "O";
   
   const buttonStyle = {
     backgroundColor: "#4CAF50", /* Green */
@@ -30,7 +31,7 @@ function PageRoot() {
     { 
         if (grid[i][0] == grid[i][1] && 
             grid[i][1] == grid[i][2] &&  
-            grid[i][0] != " ") 
+            grid[i][0] != "-") 
             return (true); 
     } 
     return(false); 
@@ -41,7 +42,7 @@ function PageRoot() {
     { 
         if (grid[0][i] == grid[1][i] && 
             grid[1][i] == grid[2][i] &&  
-            grid[0][i] != " ") 
+            grid[0][i] != "-") 
             return (true); 
     } 
     return(false); 
@@ -51,12 +52,12 @@ function PageRoot() {
 
     if (grid[0][0] == grid[1][1] && 
       grid[1][1] == grid[2][2] &&  
-      grid[0][0] != " ") 
+      grid[0][0] != "-") 
       return(true); 
         
     if (grid[0][2] == grid[1][1] && 
         grid[1][1] == grid[2][0] && 
-        grid[0][2] != " ") 
+        grid[0][2] != "-") 
         return(true); 
 
     return(false); 
@@ -68,19 +69,22 @@ function PageRoot() {
   
   const setTile = (row, column) => {
     let gridCopy = [...grid];
-    
-    setGrid[row][column](player);
+    gridCopy[row][column] = player;
+    setGrid(gridCopy);
   }  
   
   const setTurn = () => {
-    
+    (player == PLAYER_ONE) ? setPlayer(PLAYER_TWO): setPlayer(PLAYER_ONE);
   }
   
   function playGame(buttonClicked)
   {
     let row = Math.floor(buttonClicked/rows);
     let column = buttonClicked % columns;
-    if(grid[row][column]== " ") setTile(row, column);
+    if(grid[row][column]== "-") setTile(row, column);
+    if(!gameOver()){
+      setTurn();
+    }
   }
 
   return <div>
