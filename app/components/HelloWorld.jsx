@@ -95,7 +95,7 @@ function PageRoot() {
     <h2>Hello World!</h2>
     <br></br>
     <PlayerStatus playerTurn = {player}/>
-    <button style = {buttonStyle} onClick = "playGame(0)"> {grid[0][0]} </button>
+    <button style = {buttonStyle} onClick = {playGame}> {grid[0][0]} </button>
     <button style = {buttonStyle} onClick = "playGame(1)"> {grid[0][1]} </button> 
     <button style = {buttonStyle} onClick = "playGame(2)"> {grid[0][2]} </button>
     <br></br>
