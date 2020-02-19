@@ -10,6 +10,7 @@ function PageRoot() {
         [" ", " ", " "],
         [" ", " ", " "],
     ]);
+  const [player, setPlayer] = React.useState9(0);
   const PLAYER_ONE = 0;
   const PLAYER_TWO = 1;
   
@@ -64,21 +65,25 @@ function PageRoot() {
   const gameOver = () => {
     return(rowCrossed(grid) || columnCrossed(grid) || diagonalCrossed(grid) );
   }
+  
+  function playGame(buttonClicked)
+  {
+  }
 
   return <div>
     <h2>Hello World!</h2>
     <br></br>
     <h2>The Current Player is: </h2>
-    <button style = {buttonStyle}> {grid[0][0]} </button> <h1> | </h1>
-    <button style = {buttonStyle}> {grid[0][1]} </button>
+    <button style = {buttonStyle}> {grid[0][0]} </button>
+    <button style = {buttonStyle}> {grid[0][1]} </button> 
     <button style = {buttonStyle}> {grid[0][2]} </button>
     <br></br>
     <button style = {buttonStyle}> {grid[1][0]} </button>
-    <button style = {buttonStyle}> {grid[1][1]} </button>
     <button style = {buttonStyle}> {grid[1][2]} </button>
-    <br></br>
     <button style = {buttonStyle}> {grid[2][0]} </button>
+    <br></br>
     <button style = {buttonStyle}> {grid[2][1]} </button>
+    <button style = {buttonStyle}> {grid[2][2]} </button>
     <button style = {buttonStyle}> {grid[2][2]} </button>
   </div>
 

@@ -1,8 +1,8 @@
 const React = require("react");
 
-function Clockface(props)
+function PlayerStatus(props)
 {
-  return <h2>The time is {props.hours}:{props.minutes}:{props.seconds}</h2>
+  return <h2>It is Player {props.playerTurn+1}'s Turn</h2>
 }
 
-module.exports = Clockface;
+module.exports = PlayerStatus;
