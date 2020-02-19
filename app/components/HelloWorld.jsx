@@ -67,16 +67,19 @@ function PageRoot() {
     return(rowCrossed(grid) || columnCrossed(grid) || diagonalCrossed(grid) );
   }
   
+  //change button to one clicked
   const setTile = (row, column) => {
     let gridCopy = [...grid];
     gridCopy[row][column] = player;
-    setGrid(gridCopy);
+    //setGrid(gridCopy);
   }  
   
+  //
   const setTurn = () => {
     (player == PLAYER_ONE) ? setPlayer(PLAYER_TWO): setPlayer(PLAYER_ONE);
   }
   
+  //change button and set turn
   function playGame(buttonClicked)
   {
     let row = Math.floor(buttonClicked/rows);
