@@ -63,6 +63,7 @@ function PageRoot() {
     return(false); 
   }
 
+  //check if someone has won
   const gameOver = () => {
     return(rowCrossed(grid) || columnCrossed(grid) || diagonalCrossed(grid) );
   }
@@ -71,16 +72,16 @@ function PageRoot() {
   const setTile = (row, column) => {
     let gridCopy = [...grid];
     gridCopy[row][column] = player;
-    //setGrid(gridCopy);
+    setGrid(gridCopy);
   }  
   
-  //
+  //change player who goes next
   const setTurn = () => {
     (player == PLAYER_ONE) ? setPlayer(PLAYER_TWO): setPlayer(PLAYER_ONE);
   }
   
   //change button and set turn
-  function playGame(buttonClicked)
+  const  playGame = (buttonClicked) =>
   {
     let row = Math.floor(buttonClicked/rows);
     let column = buttonClicked % columns;
@@ -94,17 +95,17 @@ function PageRoot() {
     <h2>Hello World!</h2>
     <br></br>
     <PlayerStatus playerTurn = {player}/>
-    <button style = {buttonStyle} onClick = {playGame(0)}> {grid[0][0]} </button>
-    <button style = {buttonStyle} onClick = {playGame(1)}> {grid[0][1]} </button> 
-    <button style = {buttonStyle} onClick = {playGame(2)}> {grid[0][2]} </button>
+    <button style = {buttonStyle} onClick = "playGame(0)"> {grid[0][0]} </button>
+    <button style = {buttonStyle} onClick = "playGame(1)"> {grid[0][1]} </button> 
+    <button style = {buttonStyle} onClick = "playGame(2)"> {grid[0][2]} </button>
     <br></br>
-    <button style = {buttonStyle} onClick = {playGame(3)}> {grid[1][0]} </button>
-    <button style = {buttonStyle} onClick = {playGame(4)}> {grid[1][2]} </button>
-    <button style = {buttonStyle} onClick = {playGame(5)}> {grid[2][0]} </button>
+    <button style = {buttonStyle} onClick = "playGame(3)"> {grid[1][0]} </button>
+    <button style = {buttonStyle} onClick = "playGame(4)"> {grid[1][2]} </button>
+    <button style = {buttonStyle} onClick = "playGame(5)"> {grid[2][0]} </button>
     <br></br>
-    <button style = {buttonStyle} onClick = {playGame(6)}> {grid[2][1]} </button>
-    <button style = {buttonStyle} onClick = {playGame(7)}> {grid[2][2]} </button>
-    <button style = {buttonStyle} onClick = {playGame(8)}> {grid[2][2]} </button>
+    <button style = {buttonStyle} onClick = "playGame(6)"> {grid[2][1]} </button>
+    <button style = {buttonStyle} onClick = "playGame(7)"> {grid[2][2]} </button>
+    <button style = {buttonStyle} onClick = "playGame(8)"> {grid[2][2]} </button>
   </div>
 
 }
