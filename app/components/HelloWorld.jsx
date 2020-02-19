@@ -66,11 +66,16 @@ function PageRoot() {
   }
   
   const gameTie = () => {
+    let emptyCount = rows*columns;
+    let isTie = false
     for(let i = 0; i<rows; i++){
       for(let j = 0; j<columns; j++){
-        if ()
+        if(grid[i][j] == EMPTY) emptyCount--;
       }
     }
+    (emptyCount == 0) ? isTie = true: isTie = false;
+    console.log("Empty Count: " + emptyCount);
+    return isTie;
   }
 
   //check if someone has won
@@ -109,7 +114,11 @@ function PageRoot() {
     let column = buttonClicked % columns;
     if(grid[row][column]== EMPTY) setTile(row, column);
     if(!gameOver()){
-      setTurn();
+      if(!gameTie()){
+        setTurn();
+      } else {
+        setGameState(2);
+      }
     }
     else{
       setGameState(1);
