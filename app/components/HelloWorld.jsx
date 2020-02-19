@@ -64,6 +64,14 @@ function PageRoot() {
 
     return(false); 
   }
+  
+  const gameTie = () => {
+    for(let i = 0; i<rows; i++){
+      for(let j = 0; j<columns; j++){
+        if ()
+      }
+    }
+  }
 
   //check if someone has won
   const gameOver = () => {
@@ -73,9 +81,11 @@ function PageRoot() {
     let gridCopy = [...grid];
     for(let i = 0; i<rows; i++){
       for(let j = 0; j<columns; j++){
-        gridCopy[i][j] = player;
+        gridCopy[i][j] = EMPTY;
       }
     }
+    setGrid(gridCopy);
+    setGameState(0);
   }
   
   
@@ -107,7 +117,7 @@ function PageRoot() {
   }
 
   return <div>
-    <h2>Hello World!</h2>
+    <h2>Let's Play Tic Tac Toe!</h2>
     <br></br>
     <PlayerStatus playerTurn = {player} gameState = {gameState}/>
     <button style = {buttonStyle} onClick = {() => playGame(0)}> {grid[0][0]} </button>
@@ -121,6 +131,9 @@ function PageRoot() {
     <button style = {buttonStyle} onClick = {() => playGame(6)}> {grid[2][0]} </button>
     <button style = {buttonStyle} onClick = {() => playGame(7)}> {grid[2][1]} </button>
     <button style = {buttonStyle} onClick = {() => playGame(8)}> {grid[2][2]} </button>
+    <br></br>
+    <br></br>
+    <button onClick = {resetGame} > Reset </button>
   </div>
 
 }
