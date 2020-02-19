@@ -66,10 +66,21 @@ function PageRoot() {
     return(rowCrossed(grid) || columnCrossed(grid) || diagonalCrossed(grid) );
   }
   
+  const setTile = (row, column) => {
+    let gridCopy = [...grid];
+    
+    setGrid[row][column](player);
+  }  
+  
+  const setTurn = () => {
+    
+  }
+  
   function playGame(buttonClicked)
   {
-    let row = Math.floor(buttonClicked);
-    let column = 
+    let row = Math.floor(buttonClicked/rows);
+    let column = buttonClicked % columns;
+    if(grid[row][column]== " ") setTile(row, column);
   }
 
   return <div>
