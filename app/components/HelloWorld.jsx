@@ -68,23 +68,25 @@ function PageRoot() {
   
   function playGame(buttonClicked)
   {
+    let row = Math.floor(buttonClicked);
+    let column = 
   }
 
   return <div>
     <h2>Hello World!</h2>
     <br></br>
-    <h2>The Current Player is: </h2>
-    <button style = {buttonStyle}> {grid[0][0]} </button>
-    <button style = {buttonStyle}> {grid[0][1]} </button> 
-    <button style = {buttonStyle}> {grid[0][2]} </button>
+    <PlayerStatus playerTurn = {player}/>
+    <button style = {buttonStyle} onClick = {playGame(0)}> {grid[0][0]} </button>
+    <button style = {buttonStyle} onClick = {playGame(1)}> {grid[0][1]} </button> 
+    <button style = {buttonStyle} onClick = {playGame(2)}> {grid[0][2]} </button>
     <br></br>
-    <button style = {buttonStyle}> {grid[1][0]} </button>
-    <button style = {buttonStyle}> {grid[1][2]} </button>
-    <button style = {buttonStyle}> {grid[2][0]} </button>
+    <button style = {buttonStyle} onClick = {playGame(3)}> {grid[1][0]} </button>
+    <button style = {buttonStyle} onClick = {playGame(4)}> {grid[1][2]} </button>
+    <button style = {buttonStyle} onClick = {playGame(5)}> {grid[2][0]} </button>
     <br></br>
-    <button style = {buttonStyle}> {grid[2][1]} </button>
-    <button style = {buttonStyle}> {grid[2][2]} </button>
-    <button style = {buttonStyle}> {grid[2][2]} </button>
+    <button style = {buttonStyle} onClick = {playGame(6)}> {grid[2][1]} </button>
+    <button style = {buttonStyle} onClick = {playGame(7)}> {grid[2][2]} </button>
+    <button style = {buttonStyle} onClick = {playGame(8)}> {grid[2][2]} </button>
   </div>
 
 }
